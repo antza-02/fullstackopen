@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note 
+    Activate server
+    server—>>browser: redirect
+    Deactivate server
+
+    Activate server
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    server—>>browser: HTML document
+    Deactivate server
+
+    Activate server
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    server—>>browser: CSS file
+    Deactivate server
+   
+    Activate server
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    server—>>browser: JS file
+    Deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": ”moi”, "date": "2023-4-8” }, ... ]
+    deactivate server
+
