@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Activate server
+    server—>>browser: note in console: {"message":"note created"}
+    Deactivate server
