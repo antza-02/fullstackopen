@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    Activate server
+    server—>>browser: HTML document
+    Deactivate server
+
+    Activate server
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    server—>>browser: CSS file
+    Deactivate server
+   
+    Activate server
+    Browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    server—>>browser: JS file
+    Deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": ””, "date": "” }, ... ]
+    deactivate server
